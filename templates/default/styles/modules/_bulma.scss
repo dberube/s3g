@@ -1,0 +1,14 @@
+//	Import Bulma
+@import '../../../../dist/vendors/bulma/bulma';
+
+// 	Helpers
+input {
+	@include placeholder {
+		font-weight: 100;
+	}
+}
+
+.content {
+	padding-top:    $content-spacing;
+	padding-bottom: $content-spacing;
+}

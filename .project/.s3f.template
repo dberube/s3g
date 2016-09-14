@@ -1,0 +1,6 @@
+{
+	"s3f":      true,
+	"version":  "<%= version %>",
+	"template": "<%= template %>",
+	"path":     "<%= path %>"
+}

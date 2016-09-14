@@ -1,0 +1,39 @@
+#landing {
+	$opacity:    .85;
+	$background: url('../images/landing/bg.jpg') no-repeat;
+
+	background:          $background;
+	background-position: top;
+	background-size:     cover;
+
+	h2 {
+		color:       #4b4b4b;
+		opacity:     $opacity;
+		font-weight: 500 !important;
+	}
+
+	div.background-overlay {
+		background: #000;
+		opacity:    .5;
+	}
+
+	div.logo {
+		margin-bottom: 30px;
+
+		img {
+			opacity:   $opacity;
+			max-width: 200px;
+		}
+	}
+
+	div.landing-footer {
+		font-size: 14px;
+		height:    200px;
+
+		.button {
+			opacity:    1 !important;
+			padding:    25px 35px;
+			transition: background .35s ease-in-out, color .35s ease-in-out;
+		}
+	}
+}

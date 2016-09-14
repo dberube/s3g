@@ -3,7 +3,7 @@ gulp.p         = require('gulp-load-plugins')();
 gulp.bs        = require('browser-sync');
 gulp.bs.reload = gulp.bs.reload;
 gulp.cfg       = require( __dirname + '/config' ).gulp;
-require('gulp-require-tasks')({ path: process.cwd() + '/gulp', separator: ':', gulp: gulp });
+require('gulp-require-tasks')({ path: process.cwd() + '/.gulp', separator: ':', gulp: gulp });
 
 
 /*

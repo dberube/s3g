@@ -1,41 +1,39 @@
 {
-  "name": "s3f",
-  "version": "0.3.0",
-  "description": "Simple Static Site Framework (S3f) from Gusty",
-  "author": "David Berube <d@berube.co>",
-  "private": true,
-  "license": "ISC",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.com/gustyio/s3f.git"
-  },
-  "scripts": {
-    "start": "node server",
-    "dev": "gulp dev",
-    "build": "gulp build"
-  },
-  "engines": {
-    "node": "4.3.0",
-    "npm": "2.14.12"
-  },
-  "dependencies": {
-    "express": "^4.14.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.15.0",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
-    "gulp-load-plugins": "^1.3.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.0.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-require-tasks": "^1.0.5",
-    "gulp-scss": "^1.4.0",
-    "gulp-sequence": "^0.4.6",
-    "lodash": "^4.15.0",
-    "read": "^1.0.7",
-    "require-dir": "^0.3.0"
-  }
+	"name":        "my-s3f-site",
+	"version":     "0.5.0",
+	"description": "Just another static site with some support from s3f",
+	"author":      "s3f <hello@simplestatic.site>",
+	"private":     true,
+	"license":     "ISC",
+	"main":        "server.js",
+	"repository":  {
+		"type": "git",
+		"url":  "https://bitbucket.com/gustyio/s3f.git"
+	},
+	"scripts": {
+		"start": "node server",
+		"dev":   "gulp dev",
+		"build": "gulp build"
+	},
+	"engines": {
+		"node": "4.3.0",
+		"npm":  "2.14.12"
+	},
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+	"devDependencies": {
+	    "browser-sync":       "^2.15.0",
+	    "del":                "^2.2.2",
+	    "gulp":               "^3.9.1",
+	    "gulp-bower":         "0.0.13",
+	    "gulp-load-plugins":  "^1.3.0",
+	    "gulp-plumber":       "^1.1.0",
+	    "gulp-pug":           "^3.0.4",
+	    "gulp-rename":        "^1.2.2",
+	    "gulp-require-tasks": "^1.0.5",
+	    "gulp-scss":          "^1.4.0",
+	    "gulp-sequence":      "^0.4.6",
+	    "lodash":             "^4.15.0"
+	}
 }

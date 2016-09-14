@@ -12,6 +12,9 @@ To install the site locally for preview or development purposes.
 $ git clone git@bitbucket.org:gustyio/s3f.git
 $ cd s3f
 $ npm install
+$ npm link
+$ cd ~/Sites
+$ s3f init site-name && cd site-name
 $ npm run dev
 ```
 

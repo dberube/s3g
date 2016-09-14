@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-var jetpack = require('fs-jetpack');
-var _       = require('lodash');
-var Project = require( __dirname + '/../lib/project');
+var jetpack  = require('fs-jetpack');
+var _        = require('lodash');
+var Project  = require( __dirname + '/../lib/project');
 
-var args    = _.slice( process.argv, 2 );
-var cwd     = process.cwd();
-var command = args[0];
-var options = _.slice( args, 1 );
+var args     = _.slice( process.argv, 2 );
+var cwd      = process.cwd();
+var command  = args[0];
+var options  = _.slice( args, 1 );
 
 
 /*******************
@@ -15,12 +15,21 @@ var options = _.slice( args, 1 );
 
 
 var project = new Project( command, options );
-project.runCommand().then( handleSuccess ).catch( handleError );
+project.runCommand();
 
-function handleSuccess( message ) {
-	console.log( 'Woohoo!', message );
-}
-
-function handleError( error ) {
-	console.log( 'Oops!', error.message );
-}
+//
+// function handleSuccess( project ) {
+// 	project.on('npmInstall-start', function() {
+// 		console.log( '...installing s3f dependencies' );
+// 		console.log( spinners.dots );
+// 	});
+//
+// 	project.on('npmInstall-done', function() {
+// 		console.log( '...s3f dependencies installed' );
+// 	});
+// }
+//
+// function handleError( error ) {
+// 	console.log( 'Oops!', error.message );
+// 	process.exit(0);
+// }

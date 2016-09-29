@@ -1,35 +1,27 @@
 #!/usr/bin/env node
-var jetpack  = require('fs-jetpack');
-var _        = require('lodash');
-var Project  = require( __dirname + '/../lib/project');
+'use strict';
 
-var args     = _.slice( process.argv, 2 );
-var cwd      = process.cwd();
-var command  = args[0];
-var options  = _.slice( args, 1 );
+var program  = require('commander');
+var firstRun = require('first-run');
 
+require('autocmdr/lib/logger')(program);
+require('autocmdr/lib/loader')(program);
+require('autocmdr/lib/package')(program);
+require('autocmdr/lib/help')(program);
 
-/*******************
- * Run the Command *
- *******************/
+// require('autocmdr/lib/config')(program);
+// require('autocmdr/lib/completion')(program);
 
+if (firstRun() === true) {
+	var init = require( __dirname + '/../lib/init' );
+	init();
+}
 
-var project = new Project( command, options );
-project.runCommand();
+program
+	.parse(process.argv);
 
-//
-// function handleSuccess( project ) {
-// 	project.on('npmInstall-start', function() {
-// 		console.log( '...installing s3f dependencies' );
-// 		console.log( spinners.dots );
-// 	});
-//
-// 	project.on('npmInstall-done', function() {
-// 		console.log( '...s3f dependencies installed' );
-// 	});
-// }
-//
-// function handleError( error ) {
-// 	console.log( 'Oops!', error.message );
-// 	process.exit(0);
-// }
+if (program.args.length < 1 ) {
+	console.log('No command specified. See \'s3f --help\':');
+	program.outputHelp();
+	process.exit(1);
+}

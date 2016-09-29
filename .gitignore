@@ -1,7 +1,5 @@
 node_modules/
-dist/
-.gulp-scss-cache
-.sass-cache
-.cache
-.DS_Store
+
 npm-debug.log
+
+.DS_Store

@@ -1,35 +1,25 @@
-# s3f from Gusty
+#s3f2
 
-Simple Static Site Framework makes use of pug/jade, SCSS and Gulp.
+## Description
 
-Can be configured to output handlebars or other custom file types instead of the normal .html extension. This ability is useful when using this framework to build themes for a platform like Ghost.
+Simple Static Site Framework
 
-## How To *Install*, *Develop*, and *Deploy*
+## Usage
 
-To install the site locally for preview or development purposes.
-
-```
-$ git clone git@bitbucket.org:gustyio/s3f.git
-$ cd s3f
-$ npm install
-$ npm link
-$ cd ~/Sites
-$ s3f init site-name && cd site-name
-$ npm run dev
-```
-
-### To Deploy to the *STAGING* Environment
-*Not Yet Implemented*
+To install s3f2 from npm, run:
 
 ```
-$ npm run deploy-staging
+$ npm install -g s3f2
 ```
 
-### To Deploy to the *PRODUCTION* Environment
-*Not Yet Implemented*
-```
-$ npm run deploy-production
-```
+```node ./bin/s3f2 --help```
 
-### Screenshot
-*Not Yet Implemented*
+## License
+
+Copyright (c) 2016 David Berube
+
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+
+## Acknowledgments
+
+Built using [generator-commader](https://github.com/Hypercubed/generator-commander).

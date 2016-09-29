@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+	head
+
+		block title
+
+		meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+		include index.vendors.pug
+
+		block components
+
+		link(rel='stylesheet' href='styles/default.css')
+		script(src='scripts/default.js')
+
+	body
+		block content

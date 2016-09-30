@@ -3,7 +3,7 @@ module.exports = function( gulp, cb ) {
 	var dest      = gulp.cfg.build.components.styles.paths[ gulp.ENV ];
 	var filenames = gulp.cfg.build.components.styles.filenames;
 
-	gulp.p.util.log('Styles', 'Compiling SASS/SCSS', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Styles', 'Compiling SASS/SCSS', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp
 		.src( src )

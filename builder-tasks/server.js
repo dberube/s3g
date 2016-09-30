@@ -1,7 +1,7 @@
 module.exports = function( gulp, cb ) {
 	var src = gulp.cfg.paths.development;
 
-	gulp.p.util.log('Server', 'Starting Development Server', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Server', 'Starting Development Server', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp.bs.init({
 		server: src,

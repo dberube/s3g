@@ -2,19 +2,20 @@
 
 var logSymbols = require('log-symbols');
 var chalk      = require('chalk');
-var gulp       = require( __dirname + '/../lib/gulp' );
+var builder    = require( __dirname + '/../lib/builder' );
 
 module.exports = function(program) {
 
 	program
 		.command( 'dev' )
+		.option( '-b, --handlebars', 'Compile views to Handlebar templates instead of HTML' )
 		.description( 'Create an auto-updated server for development' )
 		.action( handler );
 
 };
 
-function handler() {
-	gulp.env('dev');
-	gulp.development(function() {
+function handler( program ) {
+	builder.env('dev');
+	builder.development( program.handlebars, function() {
 	});
 }

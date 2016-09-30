@@ -45,8 +45,9 @@ exports.components = {
 	}
 
 };
-
+// process.exit(console.log( _build.paths.cwd ));
 exports.vendors   = {
+	src:         jetpack.path( _build.paths.cwd, '.vendors' ),
 	development: jetpack.path( _build.parts.development, _build.dest.vendors ),
 	build:       jetpack.path( _build.parts.build, _build.dest.vendors ),
 };
@@ -64,15 +65,27 @@ function makePaths( component ) {
 		build:       jetpack.path( _build.parts.build, _build.dest[ component ] ),
 	}
 
+	// 	Build src globs
 	if (_.isArray(_build.globs.src[ component ])) {
 		results.src = [];
+
 		_.forEach(_build.globs.src[ component ], function( src ) {
-			results.src.push( jetpack.path( paths.cwd, component, src ) );
+
+			if (_.first(src) == '!') {
+				src = _.trimStart( src, '!' );
+				var path = jetpack.path( paths.cwd, component, src );
+				results.src.push( '!' + path );
+			} else {
+				results.src.push( jetpack.path( paths.cwd, component, src ) );
+			}
+
 		});
+
 	} else {
 		results.src = jetpack.path( paths.cwd, component, _build.globs.src[ component ] );
 	}
 
+	// Build watch globs
 	if (_.isArray(_build.globs.watch[ component ])) {
 		results.watch = [];
 		_.forEach(_build.globs.watch[ component ], function( watch ) {

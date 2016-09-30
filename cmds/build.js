@@ -2,35 +2,23 @@
 
 var logSymbols = require('log-symbols');
 var chalk      = require('chalk');
-var Site       = require( __dirname + '/../lib/site' );
+var builder    = require( __dirname + '/../lib/builder' );
 
 module.exports = function(program) {
 
 	program
 		.command( 'build' )
-		.description( 'Build and compile the source' )
+		.option( '-b, --handlebars', 'Compile views to Handlebar templates instead of HTML' )
+		.description( 'Compile and build the source for deployment' )
 		.action( handler );
 
 };
 
-function handler() {
-	var site = new Site();
+function handler( program ) {
 
-	site.make()
-
-		.then(function( message ) {
-			console.log( ' ' );
-			console.log(chalk.green.bold( logSymbols.success, message ));
-			console.log( ' ' );
-
-			process.exit(0);
-		})
-
-		.catch(function( error ) {
-			console.log( ' ' );
-			console.log(chalk.red.bold( logSymbols.error, error.message ));
-			console.log( ' ' );
-
-			process.exit(1);
-		})
+	builder.env('build');
+	builder.build( program.handlebars, function() {
+		process.stdout.write('\nBuild complete...\r\n');
+	});
+	
 }

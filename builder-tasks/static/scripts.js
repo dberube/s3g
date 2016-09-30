@@ -4,7 +4,7 @@ module.exports = function( gulp, cb ) {
 	var dest      = gulp.cfg.build.components.scripts.paths[ gulp.ENV ];
 	var filenames = gulp.cfg.build.components.scripts.filenames;
 
-	gulp.p.util.log('Scripts', 'Copying...', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Scripts', 'Copying...', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp
 		.src(src)

@@ -3,7 +3,7 @@ module.exports = function( gulp, cb ) {
 	var dest      = gulp.cfg.build.components.images.paths[ gulp.ENV ];
 	var filenames = gulp.cfg.build.components.images.filenames;
 
-	gulp.p.util.log('Images', 'Copying...', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Images', 'Copying...', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp
 		.src(src)

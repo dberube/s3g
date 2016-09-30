@@ -3,7 +3,7 @@ module.exports = function( gulp, cb ) {
 	var dest      = gulp.cfg.build.components.fonts.paths[ gulp.ENV ];
 	var filenames = gulp.cfg.build.components.fonts.filenames;
 
-	gulp.p.util.log('Fonts', 'Copying...', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Fonts', 'Copying...', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp
 		.src(src)

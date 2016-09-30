@@ -13,7 +13,11 @@ module.exports = {
 
 	watch: {
 		styles:  '**/*.scss',
-		views:   '**/*',
+		views:   [
+			'**/*.pug',
+			'**/*.jade',
+			'!{_*.pug,_*.jade,_**/*}'
+		],
 		scripts: '**/*',
 		images:  '**/*',
 		fonts:   '**/*',

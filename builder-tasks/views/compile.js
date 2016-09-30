@@ -3,7 +3,7 @@ module.exports = function( gulp, cb ) {
 	var dest      = gulp.cfg.build.components.views.paths[ gulp.ENV ];
 	var filenames = gulp.cfg.build.components.views.filenames;
 
-	gulp.p.util.log('Views', 'Compiling Jade/Pug', gulp.p.util.colors.magenta('123'));
+	gulp.p.util.log('Views', 'Compiling Jade/Pug', gulp.p.util.colors.yellow( 'START' ));
 
 	return gulp
 		.src( src )

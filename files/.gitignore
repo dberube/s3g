@@ -2,6 +2,7 @@ node_modules/
 development/
 dist/
 build/
+.vendors/
 
 .gulp-scss-cache
 .sass-cache

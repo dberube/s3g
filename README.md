@@ -1,4 +1,4 @@
-#s3f2
+#s3f
 
 ## Description
 
@@ -9,17 +9,11 @@ Simple Static Site Framework
 To install s3f2 from npm, run:
 
 ```
-$ npm install -g s3f2
+$ npm install -g s3f
 ```
 
-```node ./bin/s3f2 --help```
+```s3f --help```
 
 ## License
 
 Copyright (c) 2016 David Berube
-
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
-
-## Acknowledgments
-
-Built using [generator-commader](https://github.com/Hypercubed/generator-commander).

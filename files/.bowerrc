@@ -1,4 +1,4 @@
 {
-	"directory": "./development/vendors/",
+	"directory": "./_vendors/",
 	"resolvers": []
 }

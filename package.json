@@ -1,6 +1,6 @@
 {
   "name": "s3f",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Simple Static Site Framework",
   "license": "MIT",
   "bugs": "https://github.com/dberube/s3f/issues",

@@ -20,7 +20,7 @@ function handler() {
 
 		.then(function( message ) {
 			console.log( ' ' );
-			console.log(chalk.green.bold( logSymbols.success, message ));
+			console.log( logSymbols.success, message );
 			console.log( ' ' );
 
 			process.exit(0);

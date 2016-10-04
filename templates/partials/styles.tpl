@@ -1,8 +1,8 @@
 /**
- * 	{{ name }} Partial SCSS File
+ * 	<%= name %> Partial SCSS File
  */
 
-#{{ title }} {
+#<%= title %> {
 	// Partial's Variables
 	$background: null;
 

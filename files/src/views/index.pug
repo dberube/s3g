@@ -1,7 +1,12 @@
+//- Paths must be relative
 extends _layouts/index
 
+block pageComponents
+	//-	data-main path must be relative to this file
+	script(src='/vendors/require1k/require1k.js' data-main='./scripts/index')
+
 block title
-	title (s3f) Sample Site - Simple Static Site Framework from Gusty
+	title Home - Simple Static Site Framework (s3f) Starter Site
 
 block content
 	include _partials/welcome

@@ -1,9 +1,10 @@
 node_modules/
+bower_components/
 development/
 dist/
 build/
-.vendors/
 
+.vendors/
 .gulp-scss-cache
 .sass-cache
 .cache

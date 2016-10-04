@@ -1,6 +1,6 @@
+/**
+ *    Import Bootstrap variables then Bootstrap itself
+ */
+
 @import 'bootstrap-variables';
-
-//	Path to FA font files for Bootstrap
-$fa-font-path:     '/vendors/font-awesome/fonts';
-
 @import '../../../.vendors/bootstrap/scss/bootstrap';

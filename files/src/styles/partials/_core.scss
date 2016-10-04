@@ -9,3 +9,17 @@ body {
 	font-weight: 100;
 	color:       #fff;
 }
+
+a {
+	color:           #fff;
+	opacity:         1;
+	text-decoration: none;
+	font-weight:     500;
+	transition:      opacity $speed $easing;
+
+	&:hover {
+		opacity:         .5;
+		color:           #fff;
+		text-decoration: none;
+	}
+}

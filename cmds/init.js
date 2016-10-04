@@ -7,8 +7,8 @@ var Site       = require( __dirname + '/../lib/site' );
 module.exports = function(program) {
 
 	program
-		.command( 'new' )
-		.description( 'Creates a new site in the current directory' )
+		.command( 'init' )
+		.description( 'Initiates a new site in the current directory' )
 		.action( handler );
 
 };

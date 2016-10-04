@@ -1,0 +1,8 @@
+#about {
+	color: #fff;
+
+	.icon-wrapper {
+		@include icon('home');
+		color: pink;
+	}
+}

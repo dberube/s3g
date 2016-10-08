@@ -1,0 +1,11 @@
+#!/bin/bash
+TOKEN="82e3e10a-5b8d-47fb-96ce-4afbb91ed3dd"
+
+export NPM_TOKEN=$TOKEN
+# exec $SHELL -i
+
+echo ' '
+echo 'Setting NPM token to access private module that is required in the devDependencies...'
+echo ' '
+
+exit 0

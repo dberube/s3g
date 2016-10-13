@@ -1,12 +1,10 @@
 module.exports = function( gulp, cb ) {
-	var src  = gulp.cfg.build.vendors.src;
+	gulp.print.task( 'BOWER', 'Installing bower packages' );
 
-	gulp.p.util.log(
-		gulp.p.util.colors.green('BOWER:\t'),
-		'Installing Bower packages'
-	);
+	var opts = {
+		directory: gulp.config.bower.paths.temp,
+		verbosity: 0
+	};
 
-	process.stdout.write('\r\n');
-
-	return gulp.p.bower( src );
+	return gulp.p.bower( opts );
 }

@@ -1,0 +1,9 @@
+{
+	"name":         "<%= project.slug %>",
+	"dependencies": {
+		"jquery":       "^3.1.1",
+		"bootstrap":    "v4.0.0-alpha.4",
+		"font-awesome": "^4.6.3",
+		"require1k":    "^1.0.0"
+	}
+}

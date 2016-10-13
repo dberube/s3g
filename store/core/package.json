@@ -1,0 +1,13 @@
+{
+	"name":            "<%= project.slug %>",
+	"version":         "1.0.0",
+	"displayName":     "<%= project.name %>",
+	"generator":       {
+		"name":    "<%= s3g.name %>",
+		"version": "<%= s3g.version %>",
+		"website": "<%= s3g.website %>"
+	},
+	"scripts":         {},
+	"dependencies":    {},
+	"devDependencies": {}
+}

@@ -2,29 +2,41 @@
 
 var logSymbols = require('log-symbols');
 var chalk      = require('chalk');
-var _          = require('lodash');
-var builder    = require( __dirname + '/../lib/builder' );
+var jetpack    = require('fs-jetpack');
+
+var config     = require( __dirname + '/../config' );
+var Builder    = require( __dirname + '/../lib/builder' );
 
 module.exports = function(program) {
 
 	program
-		.command( 'task <task-name> [environment]' )
-		.description( 'Run a single, specific development task -- experienced users only' )
+		.command( 'task <task>' )
+		.description( 'Run a specific task, such as clean' )
 		.action( handler );
 
 };
 
-function handler( _taskName, _env ) {
-	var taskName = _.trim(_.camelCase( _taskName ));
-	var env      = _env || 'dev';
+function handler( task ) {
+	var build = Builder.custom( task );
+}
 
-	if (!_.isFunction( builder.tasks[ taskName ])) {
-		return console.log( 'Sorry, ' + _taskName + ' is not a valid task...' );
-	}
+function outputSuccess() {
+	console.log( ' ' );
+	console.log( ' ' );
+	console.log( '\t\t' + logSymbols.success + ' ', chalk.green('NEW SITE SUCCESSFULLY INITIALIZED') );
+	console.log( chalk.dim('\t――――――――――――――――――――――――――――――――――――――――――――――――――――――――') );
+	console.log( ' ' );
+	console.log( chalk.gray.bold('\t   ‧ ') + chalk.cyan.bold('Start a Development Server') + chalk.gray.bold('  ⤏  ') + chalk.bold( config.s3g.command + ' server' ) );
+	console.log( chalk.gray.bold('\t   ‧ ') + chalk.cyan.bold('Make a New Build') + chalk.gray.bold('  ⤏  ') + chalk.bold( config.s3g.command + ' build' ) );
+	console.log( chalk.gray.bold('\t   ‧ ') + chalk.cyan.bold('Create a Partial') + chalk.gray.bold('  ⤏  ') + chalk.bold( config.s3g.command + ' create <partial-name>' ) );
+	console.log( ' ' );
+	console.log( chalk.dim('\t――――――――――――――――――――――――――――――――――――――――――――――――――――――――') );
+	console.log( ' ' );
+	console.log( ' ' );
+}
 
-	builder.env( env );
-
-	builder.tasks[ taskName ](function() {
-		console.log( '...done' );
-	});
+function outputError( error ) {
+	console.log( ' ' );
+	console.log(chalk.red.bold( logSymbols.error, error.message ));
+	console.log( ' ' );
 }

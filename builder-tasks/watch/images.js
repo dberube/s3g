@@ -1,8 +1,5 @@
 module.exports = function( gulp, cb ) {
-	var src = gulp.cfg.build.components.images.paths.watch;
-
-	// return gulp.p.watch( src, [ 'images:watch' ] );
-
+	var src = gulp.config.statics.images.paths.watch;
 	gulp.watch( src, [ 'static:images' ] );
 	cb();
 }

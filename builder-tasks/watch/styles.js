@@ -1,8 +1,7 @@
 module.exports = function( gulp, cb ) {
-	var src = gulp.cfg.build.components.styles.paths.watch;
-
-	// return gulp.p.watch( src, [ 'styles:watch' ] );
-
+	var src = gulp.config.styles.paths.watch;
 	gulp.watch( src, [ 'styles:watch' ] );
 	cb();
 }
+
+// return gulp.p.watch( src, [ 'styles:watch' ] );

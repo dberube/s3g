@@ -1,21 +1,19 @@
 module.exports = function( gulp, cb ) {
-	var src       = gulp.cfg.build.components.views.paths.src;
-	var dest      = gulp.cfg.build.components.views.paths[ gulp.ENV ];
-	var filenames = gulp.cfg.build.components.views.filenames;
+	var src    = gulp.config.views.paths.src;
+	var ignore = gulp.config.views.paths.ignore;
+	var dest   = gulp.config.views.paths[ gulp.buildType ];
+	var file   = gulp.config.views.file;
 
-	gulp.p.util.log(
-		gulp.p.util.colors.green('VIEWS:\t'),
-		'Compiling Jade/Pug files into HTML'
-	);
-
+	gulp.print.task( 'VIEWS', 'Compiling Jade/Pug files' );
 	return gulp
 		.src( src )
 		.pipe(gulp.p.plumber())
+		.pipe(gulp.p.ignore( ignore ))
 		.pipe(gulp.p.changed(dest))
 		.pipe(gulp.p.pug({
 			pretty: true
 		}))
-		.pipe(gulp.p.rename( filenames ))
+		.pipe(gulp.p.rename({ extname: file.parts.ext }))
 		.pipe(gulp.dest( dest ))
 		.pipe(gulp.bs.reload({stream: true}));
 }

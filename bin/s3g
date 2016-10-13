@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+'use strict';
+
+var program    = require('commander');
+var chalk      = require('chalk');
+var logSymbols = require('log-symbols');
+var figures    = require('figures');
+var print      = require('../lib/print');
+
+
+require('autocmdr/lib/logger')(program);
+require('autocmdr/lib/loader')(program);
+require('autocmdr/lib/package')(program);
+require('autocmdr/lib/help')(program);
+
+program
+	.parse(process.argv);
+
+if (program.args.length < 1 ) {
+	print.logo();
+	program.outputHelp();
+	console.log( ' ', chalk.red(logSymbols.error), chalk.red(' No command specified.') );
+	console.log( ' ', chalk.green.bold(figures.pointerSmall), chalk.green.bold(' Displayed \'s3g --help\' instead.') );
+	console.log( ' ' );
+	process.exit(1);
+}

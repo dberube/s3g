@@ -1,0 +1,7 @@
+.temp/
+.vendors/
+serve/
+node_modules/
+
+npm-debug.log
+.DS_Store

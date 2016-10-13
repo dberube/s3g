@@ -2,35 +2,57 @@
 
 var logSymbols = require('log-symbols');
 var chalk      = require('chalk');
-var Site       = require( __dirname + '/../lib/site' );
+var print      = require( __dirname + '/../lib/print' );
+var config     = require( __dirname + '/../config' );
+var Init       = require( __dirname + '/../lib/init' );
 
 module.exports = function(program) {
 
 	program
 		.command( 'init' )
-		.description( 'Initiates a new site in the current directory' )
+		.alias('new')
+		.description( 'Initiates a new static site project in the current directory' )
 		.action( handler );
 
 };
 
 function handler() {
-	var site = new Site();
+	var init = new Init();
 
-	site.make()
+	init.make().then(
 
-		.then(function( message ) {
-			console.log( ' ' );
-			console.log( logSymbols.success, message );
-			console.log( ' ' );
-
+		function( site ) {
+			outputSuccess();
 			process.exit(0);
-		})
+		},
 
-		.catch(function( error ) {
-			console.log( ' ' );
-			console.log(chalk.red.bold( logSymbols.error, error.message ));
-			console.log( ' ' );
-
+		function( error ) {
+			outputError( error );
 			process.exit(1);
-		})
+		}
+	);
+}
+
+function outputSuccess() {
+	print.logo();
+
+	print.banner({
+		label:        '\t\t    ' + logSymbols.success + '  Completed New Site Initialization',
+		color:  	  'green'
+	});
+
+	print.banner({
+		label:        '\t\t        Run s3g --help to get started!',
+		color:  	  'cyan'
+	});
+}
+
+function outputError( error ) {
+	print.logo();
+
+	print.banner({
+		label: '   ' + logSymbols.error + '  ' + error.message,
+		color: 'red',
+		style: 'bold'
+	});
 }

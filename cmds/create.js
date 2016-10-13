@@ -1,47 +1,29 @@
 'use strict';
 
-var logSymbols  = require('log-symbols');
-var chalk       = require('chalk');
-var _           = require('lodash');
-var Create      = require( __dirname + '/../lib/create' );
+var logSymbols = require('log-symbols');
+var chalk      = require('chalk');
+var jetpack    = require('fs-jetpack');
 
-var excludeList = [ 'pug', 'jade', 'scss', 'sass' ];
+var config  = require( __dirname + '/../config' );
+var Partial = require( __dirname + '/../lib/partial' );
 
-module.exports  = function(program) {
+module.exports = function(program) {
 
 	program
 		.command( 'create <name>' )
-		.option('-e --exclude [exclude]', 'Exclude either Pug or SCSS file from the partial creation', false )
-		.description( 'Creates a new site in the current directory' )
+		.description( 'Creates a new Pug & SCSS partial and automatically includes it' )
 		.action( handler );
 
 };
 
-function handler( name, program ) {
-	var exclude = (program.exclude === false) ? false : _.toLower(program.exclude);
+function handler( name ) {
+	var partial = new Partial( name );
 
-	if (exclude !== false && !_.includes(excludeList, exclude)) {
-		throw new Error( 'Sorry, ' + exclude + ' is not a valud exclusion. Try pug or scss' );
-	}
-
-	var partials = new Create.partials( name, exclude );
-
-
-	partials.make()
-
-		.then(function( message ) {
-			console.log( ' ' );
-			console.log( logSymbols.success, message );
-			console.log( ' ' );
-
-			process.exit(0);
+	partial
+		.then(function(res) {
+			process.exit(console.log( 'res:', res ));
 		})
-
-		.catch(function( error ) {
-			console.log( ' ' );
-			console.log(chalk.red.bold( logSymbols.error, error.message ));
-			console.log( ' ' );
-
-			process.exit(1);
-		});
+		.catch(function(err) {
+			process.exit(console.log( 'err:', err ));
+		})
 }

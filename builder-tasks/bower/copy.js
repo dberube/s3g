@@ -1,18 +1,11 @@
-var jetpack = require('fs-jetpack');
-
 module.exports = function( gulp, cb ) {
-	var src  = jetpack.path( gulp.cfg.build.vendors.src, '**/*' );
-	var dest = gulp.cfg.build.vendors[ gulp.ENV ];
+	var src  = gulp.config.bower.paths.src;
+	var dest = gulp.config.bower.paths[ gulp.buildType ];
 
-	process.stdout.write('\r\n');
-	
-	gulp.p.util.log(
-		gulp.p.util.colors.green('BOWER:\t'),
-		'Copying installed Bower packages to the ' + gulp.ENV + ' environment'
-	);
+	gulp.print.task( 'BOWER', 'Copying installed Bower packages' );
 
 	return gulp
-		.src(src)
+		.src( src )
 		.pipe(gulp.p.plumber())
 		.pipe(gulp.dest( dest ));
 }

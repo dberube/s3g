@@ -1,0 +1,12 @@
+{
+	"s3g":     true,
+	"version": "<%= s3g.version %>",
+	"project": {
+		"name":  "<%= project.name %>",
+		"path":  "<%= project.path %>",
+		"files": {
+			"styles": "<%= project.files.styles %>"
+		},
+		"config": {}
+	}
+}

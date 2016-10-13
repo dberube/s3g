@@ -1,0 +1,21 @@
+/**
+ *    Bring all the Sass files together
+ */
+
+/*	Global variables and mixins 	*/
+@import 'variables';
+@import 'mixins';
+
+/*	Fonts	*/
+@import 'fonts/lato';
+@import 'fonts/roboto';
+@import 'fonts/raleway';
+
+/*	Vendor Modules 	*/
+@import 'modules/font-awesome';
+@import 'modules/bootstrap';
+
+/*	Partials	*/
+@import 'partials/core';
+@import 'partials/welcome';
+@import 'partials/about';
